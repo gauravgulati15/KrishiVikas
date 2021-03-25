@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block body %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="{% url 'home:home' %}">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Contact Us</li>
+</ol>
+<section class="ab-info-main py-5">
+    <div class="container py-3">
+        <h3 class="tittle text-center"><span class="sub-tittle">Find Us</span> Contact Us</h3>
+        <div class="row contact-main-info mt-5">
+            <div class="col-md-6 contact-right-content">
+                <form action="#" method="POST">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    {% buttons %}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    {% endbuttons %}
+                </form>
+            </div>
+            <div class="col-md-6 contact-left-content">
+                <div class="address-con">
+                    <h4 class="mb-2"><span class="fa fa-phone-square" aria-hidden="true"></span> Phone</h4>
+                    <p>+91 0000000000</p>
+                    <p>+91 0000000000</p>
+                </div>
+                <div class="address-con my-4">
+                    <h4 class="mb-2"><span class="fa fa-envelope-o" aria-hidden="true"></span> Email </h4>
+                    <p><a href="mailto:info@example.com">trojanalpha1@gmail.com</a></p>
+                </div>
+                <div class="address-con">
+                    <h4 class="mb-2"><span class="fa fa-map-marker" aria-hidden="true"></span> Location </h4>
+
+                    <p>New Delhi, India</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock body %}

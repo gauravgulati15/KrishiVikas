@@ -1,0 +1,88 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block body %}
+<div>
+    <!--/ab -->
+    <section class="about py-md-5 py-5">
+        <div class="container-fluid">
+            <div class="feature-grids row px-3">
+    
+                <div class="col-lg-3 gd-bottom">
+                    <div class="imgcard1 bottom-gd row bottom-gd2-active">
+                        <div class="icon-gd col-md-3 text-center"></div>
+                        <div class="icon-gd-info col-md-9">
+                            <h3 class="mb-2">BUY PRODUCTS</h3>
+    
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-lg-3 gd-bottom">
+                    <div class="imgcard2 bottom-gd row bottom-gd2-active">
+                        <div class="icon-gd col-md-3 text-center">
+                        </div>
+                        <div class="icon-gd-info col-md-9">
+                            <h3 class="mb-2">SELL GOODS</h3>
+    
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 gd-bottom">
+                    <div class="imgcard3 bottom-gd row bottom-gd2-active">
+                        <div class="icon-gd col-md-3 text-center"> </div>
+    
+                        <div class="icon-gd-info col-md-9">
+                            <h3 class="mb-2">BE INFORMED</h3>
+    
+                        </div>
+    
+                    </div>
+                </div>
+                <div class="col-lg-3 gd-bottom">
+                    <div class="imgcard4 bottom-gd row bottom-gd2-active">
+                        <div class="icon-gd col-md-3 text-center"> </div>
+                        <div class="icon-gd-info col-md-9">
+                            <h3 class="mb-2">SUPPORT</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- //ab -->
+    <!--/ab -->
+    <section class="about py-5">
+        <div class="container pb-lg-3">
+            <h3 class="tittle text-center">MANDI</h3>
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-4 product-men">
+                    <div class="product-shoe-info shoe text-center">
+                        <div class="men-thumb-item">
+                            <a href="{% url 'products:product_detail' product.id %}">
+                            <img src="{{product.product_pic.url}}" class="img-bazar product-image" alt="image here">
+                            </a>
+                            <br>
+                            <span class="product-new-top">New</span>
+                        </div>
+                        <div class="item-info-product">
+                            <h3>
+                                <a class="product-name" href="{% url 'products:product_detail' product.id %}">{{product.name}} : {{product.quantity}} kg</a>
+                            </h3>
+                            <h4 class="product-vendor">Vendor - {{product.vendor}}</h4>
+                            <div class="product_price">
+                                <div class="grid-price">
+                                    <span class="money">₹ {{product.price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- //ab -->
+</div>
+{% endblock body %}

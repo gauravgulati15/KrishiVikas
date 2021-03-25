@@ -1,0 +1,153 @@
+.cardcss {
+  width: 100%;
+}
+
+.cropped {
+  overflow: hidden;
+}
+
+.cropped img {
+  margin: -150px -0px -250px -0px;
+}
+
+.topic {
+  color: black;
+  font-size: 2rem;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+.topic:hover {
+  color: red;
+}
+
+.icon-linkedin {
+  color: red;
+}
+
+.pop1 {
+  background: url(../images/gaurav_pic.png);
+  background-size: cover;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.pop2 {
+  background: url(../images/shitiz_pic.jpg);
+  background-size: cover;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.pop3 {
+  background: url(../images/siddhant_pic.jpg);
+  background-size: cover;
+  height: 300px;
+  border-radius: 50%;
+}
+
+.name {
+  color: black;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.imgcard1 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/buy.png);
+  background-size: cover;
+}
+
+.imgcard2 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/sell.png);
+  background-size: cover;
+}
+
+.imgcard3 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/informed.png);
+  background-size: cover;
+}
+
+.imgcard4 {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/support.png);
+  background-size: cover;
+}
+
+.img-bazar {
+  max-width: 100%;
+  height: 180px;
+}
+
+.border1 {
+  border: 2px solid black;
+  border-spacing: 10px;
+}
+
+.image-adjust {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+.product-name {
+  color: black;
+  font-family: sans-serif;
+
+  /* text-transform: uppercase; */
+}
+
+.product-name:hover {
+  color: red;
+}
+
+.product-vendor {
+  font-weight: bold;
+  font-family: sans-serif;
+  color: black;
+}
+
+.product-image:hover {
+  max-width: 102%;
+  height: 185px;
+}
+
+.pad {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 25px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.footer-logo {
+  display: block;
+  max-width: 10%;
+  max-height: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  /* shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
+    0 6px 20px 0 rgba(255, 255, 255, 0.19); */
+}
+
+.footer {
+  background-color: #303030;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  background-color: #303030;
+  margin-bottom: 0;
+  color: #999;
+}
+
+.footer-link {
+  color: #ea8a95;
+}
+
+.footer-link:hover {
+  color: white;
+}

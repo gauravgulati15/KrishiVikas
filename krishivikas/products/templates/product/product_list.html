@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+        <!---->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'home:home' %}">Home</a>
+            </li>
+            <li class="breadcrumb-item active">Bazar</li>
+        </ol>
+        <!---->
+            <section class="ab-info-main py-md-5 py-4">
+                <div class="container py-md-3">
+                    <!-- top Products -->
+                    <div class="row">
+                        <!-- product left -->
+                        <div class="col-lg-3">
+            
+                            <div class="search-bar w3layouts-newsletter">
+                                <h3 class="sear-head">Search Here..</h3>
+                                <form action="{% url 'products:product_list' %}" method="GET" class="d-flex">                                  
+                                    <input type="text" placeholder="Search by name,category,vendor" name="q" class="form-control"
+                                        value="{{request.GET.q}}">
+                                    <button class="btn1"><span class="fa fa-search" aria-hidden="true"></span></button> 
+                                </form>
+                            </div>
+                            <!--preference -->
+                            <div class="left-side my-4">
+                                <h3 class="sear-head">Categories</h3>
+                                <ul class="w3layouts-box-list">
+                                    <li>
+                                        <a class="button buttonnew" href="{% url 'products:product_list' %}">All</a>
+                                    </li>
+                                </ul>
+                                {% for cat in categories %}
+                                <ul class="w3layouts-box-list">
+                                    <li>
+                                        <a class="button buttonnew" href="{% url 'products:product_by_category' cat %}">{{cat}}</a>
+                                    </li>
+                                </ul>
+                                {% endfor %}
+                            </div>
+                            <!-- // preference -->            
+                        </div>
+                        <!-- //product left -->
+                        <!-- product right -->
+                        <div class="col-lg-9">
+                            <div class="row">
+                                {% for product in  product_list %}
+                                <div class="col-md-4 product-men">
+                                    <div class="product-shoe-info shoe text-center">
+                                        <div class="men-thumb-item">
+                                            <a href="{% url 'products:product_detail' product.id %}">
+                                            <img src="{{ product.product_pic.url }}" class="img-bazar product-image" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="item-info-product">
+                                            <h3>
+                                                <a class="product-name" href="{% url 'products:product_detail' product.id %}">{{product.name}} </a>
+                                            </h3>
+                                            <h5 class="product-vendor">Vendor - {{product.vendor}}</h5>            
+                                            <div class="product_price">
+                                                <div class="grid-price">
+                                                    <span class="money">₹ {{product.price}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- //contact -->
+{% endblock body %}

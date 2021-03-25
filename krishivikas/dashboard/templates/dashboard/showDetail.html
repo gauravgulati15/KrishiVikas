@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block body %}
+  <!-- <img src="{{ vendor.profile_pic.url }}" alt="Image here">
+  <h1>{{vendor.name}}</h1>
+  <h1>{{vendor.phone}}</h1>
+  <h1>{{vendor.email}}</h1>
+  <h1>{{vendor.city}}</h1> -->
+  <br><br>
+  <section class="banner-bottom " id="about">
+    <br>
+    <br>
+    <div class="container">
+  
+      <div class="move row middle-grids">
+        <div class="col-lg-4 advantage-grid-info1">
+          <div class="advantage_left1 text-center">
+            <img src="{{ vendor.profile_pic.url }}" class="img-fluid"
+              alt="">
+          </div>
+        </div>
+        <div class="col-lg-8 advantage-grid-info">
+          <div class="advantage_left">
+            <h2 class="vendor-name"><span>{{vendor.name}}</span></h2>
+            <p class="details">{{vendor.phone}}</p>
+            <p class="details">{{vendor.email}}</p>
+            <p class="details">{{vendor.city}}</p>
+  
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <br>
+    <br>
+  </section>
+  
+  <section class="about py-5">
+    <div class="container pb-lg-3">
+      <h3 class="tittle text-center">Products by {{vendor.name}}</h3>
+      <div class="row">
+        {% for product in products %}
+        <div class="col-md-4 product-men">
+          <div class="product-shoe-info shoe text-center">
+            <div class="men-thumb-item">
+              <a href="{% url 'products:product_detail' product.id %}">
+                <img src="{{product.product_pic.url}}" class="img-bazar" alt="image here">
+              </a>
+            </div>
+            <div class="item-info-product">
+              <h3>
+                <a class="product-name" href="{% url 'products:product_detail' product.id %}">{{product.name}} :
+                  {{product.quantity}} kg</a>
+              </h3>
+              <div class="product_price">
+                <div class="grid-price">
+                  <span class="money">₹ {{product.price}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+{% endblock body %}

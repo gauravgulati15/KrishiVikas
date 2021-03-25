@@ -1,0 +1,66 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block body %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="{% url 'home:home' %}">Home</a>
+    </li>
+    <li class="breadcrumb-item active">About</li>
+</ol>
+<section class="hand-crafted py-5">
+    <div class="container">
+        <div class="inner-sec py-md-5 px-lg-5">
+            <h3 class="tittle text-center"> Welcome to Krishi Vikas</h3>
+            <p class="text-center about-text-color">Krishi Vikas is a platform where you can directly sell and buy any farming related product without the intervention of any third
+            party.
+            </p>
+            <p class="text-center about-text-color"> 
+            Through our blogs we also provide the necessary information about government reforms, bills, new farming technologies and much more so
+            that you can always be up to date.</p>
+        </div>
+    </div>
+</section>
+<!--/ab -->
+
+<section class="about py-md-5 py-5">
+    <div class="container py-md-3">
+        <h3 class="tittle text-center">CREATORS</h3>
+        <div class="row">
+            <div class="col-md-4 gd-bottom mt-lg-4">
+                <div class="bottom-gd p-lg-5 p-4">
+                    <div class="pop1">
+                    </div>
+                    <span class="fa fa-linkedin icon-linkedin" aria-hidden="true"></span>
+                    <h3 class="my-3 name">
+                        GAURAV GULATI</h3>
+                    <p>FullStack Developer | Python | Database Management</p>
+                </div>
+            </div>
+            <div class="col-md-4 gd-bottom mt-lg-4">
+                <div class="bottom-gd p-lg-5 p-4">
+                    <div class="pop2">
+                    </div>
+                    <span class="fa fa-linkedin icon-linkedin" aria-hidden="true"></span>
+                    <h3 class="my-3 name">
+                        SHITIZ AGGARWAL</h3>
+                    <p>Frontend Developer | UI/UX Designer | Python</p>
+                </div>
+            </div>
+            <div class="col-md-4 gd-bottom mt-lg-4">
+                <div class="bottom-gd p-lg-5 p-4">
+                    <div class="pop3">
+                    </div>
+                    <span class="fa fa-linkedin icon-linkedin" aria-hidden="true"></span>
+                    <h3 class="my-3 name">
+                        SIDDHANT JAIN</h3>
+                    <p>Frontend Developer | Graphic Designer | Python</p>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+
+{% endblock body %}

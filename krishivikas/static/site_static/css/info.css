@@ -1,0 +1,45 @@
+.advantage_left1 img {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.vendor-name {
+  font-size: 3em;
+  font-family: "Times New Roman", Times, serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.details {
+  margin: 0;
+  padding: 0;
+  font-size: 40px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  color: grey;
+  font-weight: 400;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.advantage_left p {
+  font-size: 2em;
+  line-height: 1.5em;
+}
+
+.advantage-grid-info {
+  margin-top: 3.5em;
+  padding-left: 7em;
+}
+
+.move {
+  padding-left: 12em;
+}
+
+@media (max-width: 1200px) {
+  .move {
+    padding-left: 0em;
+  }
+}

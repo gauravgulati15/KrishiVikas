@@ -1,0 +1,108 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load bootstrap4 %} 
+{% block body %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="{% url 'home:home' %}">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Full Blog</li>
+</ol>
+<br>
+<br>
+<div class="container">
+    <h2 class="heading mb-4">{{post_detail}}</h2>
+</div>
+<div class="container">
+    <div class="post-info">
+        <div class="head date-info">{{post_detail.created}}</div>
+    </div>
+</div>
+<br>
+
+<div class="section">
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <img src="{{post_detail.image.url}}" style="width:100%;">
+                <p class="blog-content">{{post_detail.content}}</p>
+                <div class="head category-info">In {{post_detail.category}}</div>
+                <div class="head author-info">By {{post_detail.author}}</div>
+                <div class="tag-widget post-tag-container mb-5 mt-5">
+                    <div class="tagcloud">
+                        {% for tag in post_detail.tags.all %}
+                        <a href="{% url 'blog:post_by_tag' tag %}" class="tag-cloud-link"><button class="button button1">{{tag.name}}</button></a> {% endfor %}
+                    </div>
+                </div>
+
+                 <div class="pt-5 mt-5">
+                    <h3 class="mb-5">Comments</h3>
+                        <ul class="comment-list">
+                            {% for comment in comments %}
+                                <li class="comment">
+                                    <div class="comment-body">
+                                        <h3>{{comment.author}}</h3>
+                                        <div class="meta">{{comment.created_date}}</div>
+                                            <p> {{comment.text}}</p>
+                                        </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <!-- END comment-list -->
+                                            
+                        <div class="comment-form-wrap pt-5">
+                            <h3 class="mb-5">Leave a comment</h3>
+                            <form action="" method="POST" class="p-5 bg-light">
+                            {% csrf_token %}
+                            {% bootstrap_form comment_form %}
+                            {% buttons %}
+                            <button type="submit" class="btn btn-primary">Leave A Comment</button>
+                            {% endbuttons %}
+                            </form>
+                        </div>
+                </div>
+
+            </div>
+
+            <!-- .col-md-8 -->
+            <div class="col-md-4 sidebar">
+                <div class="sidebar-box">
+                    <form action="{% url 'blog:post_list' %}" method="GET" class="search-form">
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" value="{{request.Get.q}}" name="q" placeholder="Type a keyword to see any Blog and hit enter">
+                        </div>
+                    </form>
+                </div>
+                <div class="sidebar-box">
+                    <div class="categories">
+                        <h3 style="padding-bottom: 10px;">CATEGORIES</h3>
+                        {% for cat in categories %}
+                        <li><a class="cat-item" href="{% url 'blog:post_by_category' cat %}">{{cat}}</a></li>
+                        {% endfor %}
+                    </div>
+                </div>
+                <br>
+
+                <div class="sidebar-box">
+                    <h3 style="padding-bottom: 10px;">TAG CLOUD</h3>
+                    <div class="tagcloud">
+                        {% for tag in all_tags %}
+                        <a href="{% url 'blog:post_by_tag' tag %}" class="tag-cloud-link"><button class="button button1">{{tag}}</button></a> 
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+<!-- .section -->
+
+{% endblock body %}

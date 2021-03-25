@@ -1,0 +1,60 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="{% url 'home:home' %}">Home</a>
+    </li>
+    <li class="breadcrumb-item active">Blog</li>
+</ol>
+<!-- banner -->
+
+<section class="ab-info-main py-5">
+    <div class="container py-lg-3">
+        <div class="ab-info-grids">
+            <h3 class="tittle text-center mb-lg-5 mb-3">BLOGS</h3>
+
+            {% for post in post_list %}
+
+            <div id="products">
+                <div class="item">
+                    <div class=" cardcss thumbnail card">
+                        <div class="cropped img-event">
+                            <a href="{% url 'blog:post_detail' post.id %}">
+                                <img class="imagecss group list-group-image img-fluid" src="{{post.image.url}}" alt="" />
+                            </a>
+                        </div>
+                        <div class="caption card-body">
+                            <h4 class="group card-title inner list-group-item-heading">
+                                <a class="topic" href="{% url 'blog:post_detail' post.id %}">{{post}}</a>
+                            </h4>
+                            <p>
+                                {{post.content|truncatewords:20}}
+                            </p>
+
+
+                            <div style="color: grey;">
+                                <span class="fa fa-calendar" style="color: grey;">&nbsp;</span>{{post.created}}
+                            </div>
+
+                            <br>
+
+                            <div class="ban-buttons">
+                                <a class="btn btn-course" href="{% url 'blog:post_detail' post.id %}">View More</a>
+                            </div>
+                            <br>
+
+                        </div>
+
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- //banner -->
+
+{% endblock body %}
