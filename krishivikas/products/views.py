@@ -9,7 +9,7 @@ from django.db.models import Q
 
 def product_list(request):
     product_list = Product.objects.all()
-
+    # to filter the results on the basis on query
     search_query = request.GET.get('q')
     if search_query:
         product_list = product_list.filter(
@@ -18,16 +18,16 @@ def product_list(request):
             | Q(vendor__name__icontains=search_query)).distinct()
 
     categories = Category.objects.all()
-
+    #  rendering the product_list template
     context = {'product_list': product_list, 'categories': categories}
 
     return render(request, 'product/product_list.html', context)
 
-
+# function to get details of a particular product and it also handles the commentform (to add product reviews).
 def product_detail(request, id):
     product_detail = Product.objects.get(id=id)
     categories = Category.objects.all()
-
+    #  getting the reviews of the particular product
     comments = ProductComment.objects.filter(product=product_detail)
 
     if request.method == "POST":
@@ -48,7 +48,7 @@ def product_detail(request, id):
     }
     return render(request, 'product/product_detail.html', context)
 
-
+# function to get all the products having particular catogory
 def product_by_category(request, cat):
     product_by_category = Product.objects.filter(category__name=cat)
     categories = Category.objects.all()
